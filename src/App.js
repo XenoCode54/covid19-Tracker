@@ -1,7 +1,6 @@
 import React from 'react';
-import {CountryCaseSection, MainApp, NumberText, OverviewSection, Title} from "./appStyles";
+import {MainApp, OverviewSection, Title} from "./appStyles";
 import Total from "./components/Total";
-import New from "./components/New";
 import Chart from "./components/Chart";
 import Country from "./components/Country";
 

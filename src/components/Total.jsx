@@ -33,7 +33,7 @@ function Total(props) {
             setIsLoading(false);
         }).catch(err => setError(err.message));
 
-    }, [])
+    }, [props.data, props.label, props.total])
 
     return (
         <OverviewCard>

@@ -34,15 +34,6 @@ background: #ecf0f3;
 box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 `
 
-export const NewSection = styled.div`
-grid-area: new;
-`
-
-export const ChartSection = styled.div`
-grid-area: chart;
-
-`
-
 export const CountrySection = styled(OverviewCard)`
 flex-direction: row;
 justify-content: center;

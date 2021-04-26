@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {CountryCaseSection, CountrySection, NumberText, OverviewCard} from "../appStyles";
+import {CountryCaseSection, CountrySection, NumberText} from "../appStyles";
 import CaseCard from "./CaseCard";
 import {Doughnut} from 'react-chartjs-2';
 
@@ -64,7 +64,7 @@ function Country(props) {
             }
             return res.json()
         }).then(requests => {
-           setCountries(requests.Countries);
+            setCountries(requests.Countries);
         }).then(() => {
             setIsLoading(false);
         }).catch(err => setError(err.message));
@@ -74,20 +74,26 @@ function Country(props) {
         <CountrySection>
             <CountryCaseSection>
                 {error ? <h4>{error}</h4> :
-                    isLoading ? <h3>Loading...</h3> :<CaseCard headerText='Total Confirmed' numberText={lastCountryData.Confirmed}/>}
+                    isLoading ? <h3>Loading...</h3> :
+                        <CaseCard headerText='Total Confirmed' numberText={lastCountryData.Confirmed}/>}
                 {error ? <h4>{error}</h4> :
-                    isLoading ? <h3>Loading...</h3> :<CaseCard headerText='Total Recovered' numberText={lastCountryData.Recovered}/>}
+                    isLoading ? <h3>Loading...</h3> :
+                        <CaseCard headerText='Total Recovered' numberText={lastCountryData.Recovered}/>}
                 {error ? <h4>{error}</h4> :
-                    isLoading ? <h3>Loading...</h3> :<CaseCard headerText='Total Deaths' numberText={lastCountryData.Deaths}/>}
+                    isLoading ? <h3>Loading...</h3> :
+                        <CaseCard headerText='Total Deaths' numberText={lastCountryData.Deaths}/>}
                 {error ? <h4>{error}</h4> :
-                    isLoading ? <h3>Loading...</h3> :<CaseCard headerText='Total Active' numberText={lastCountryData.Active}/>}
+                    isLoading ? <h3>Loading...</h3> :
+                        <CaseCard headerText='Total Active' numberText={lastCountryData.Active}/>}
             </CountryCaseSection>
             <CountryCaseSection>
                 <NumberText style={{'margin': "0 auto 10px auto"}}>{country.toUpperCase()}</NumberText>
-                <select style={{'marginBottom': '20px'}} name="country" id="country" onChange={(e) => {setCountry(e.target.value)}}>
+                <select style={{'marginBottom': '20px'}} name="country" id="country" onChange={(e) => {
+                    setCountry(e.target.value)
+                }}>
                     {
                         countries.map((country) => {
-                           return <option value={country.Slug} key={country.ID}>{country.Country}</option>
+                            return <option value={country.Slug} key={country.ID}>{country.Country}</option>
                         })
                     }
                 </select>
