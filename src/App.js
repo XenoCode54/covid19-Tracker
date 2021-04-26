@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {CountryCaseSection, MainApp, NumberText, OverviewSection, Title} from "./appStyles";
+import Total from "./components/Total";
+import New from "./components/New";
+import Chart from "./components/Chart";
+import Country from "./components/Country";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <MainApp>
+            <Title>
+                COVID19 TRACKER
+            </Title>
+            <OverviewSection>
+                <Total label="Total World Cases" data={["Total Confirmed", "Total Recovered", "Total Deaths"]} total/>
+                <Total label="New World Cases" data={["New Confirmed", "New Recovered", "New Deaths"]}/>
+            </OverviewSection>
+            <OverviewSection>
+                <Chart/>
+                <Country/>
+            </OverviewSection>
+        </MainApp>
+    );
 }
 
 export default App;
