@@ -7,7 +7,7 @@ function Chart(props) {
   const [barData, setBarData] = useState({});
   const [error, setError] = useState(null);
 
-  //Function to sort in descending astartar order
+  //Function to sort in descending order
   // eslint-disable-next-line no-extend-native
   Array.prototype.sortBy = function (p) {
     return this.slice(0).sort(function (a, b) {
