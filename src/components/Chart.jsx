@@ -94,7 +94,7 @@ function Chart(props) {
       {error ? (
         <h4>{error}</h4>
       ) : isLoading ? (
-        <h3>Generating Lots of Data...</h3>
+        <h3>Data...</h3>
       ) : (
         <Bar
           data={barData}
